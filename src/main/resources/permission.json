@@ -1,0 +1,101 @@
+{
+    "version": "2.0",
+    "permissions": [
+        {
+            "id": "FLOW:MANAGER",
+            "name": "$[{i18n_process_manage}]",
+            "resourceId": "FLOW",
+            "parentRoles": [
+                "ADMIN"
+            ]
+        },
+        {
+            "id": "FORM:MANAGER",
+            "name": "$[{i18n_form_management}]",
+            "resourceId": "FORM",
+            "parentRoles": [
+                "ADMIN"
+            ]
+        },
+        {
+            "id": "TICKET_CONFIG:MANAGER",
+            "name": "$[{i18n_ticket_template_management}]",
+            "resourceId": "TICKET_CONFIG",
+            "parentRoles": [
+                "ADMIN"
+            ]
+        },
+        {
+            "id": "TICKET:READ",
+            "name": "$[{i18n_view_ticket}]",
+            "resourceId": "TICKET",
+            "parentRoles": [
+                "ADMIN",
+                "ORGADMIN",
+                "USER"
+            ]
+        },
+        {
+            "id": "TICKET:APPLY",
+            "name": "$[{i18n_ticket_apply}]",
+            "resourceId": "TICKET",
+            "parentRoles": [
+                "USER"
+            ]
+        },
+        {
+            "id": "WATCH_LIST:READ",
+            "name": "$[{i18n_view_duty_list}]",
+            "resourceId": "TICKET",
+            "parentRoles": [
+                "ADMIN"
+            ]
+        },
+        {
+            "id": "WATCH_LIST:CREATE",
+            "name": "$[{i18n_create_duty_list}]",
+            "resourceId": "WATCH_LIST",
+            "parentRoles": [
+                "ADMIN"
+            ]
+        },
+        {
+            "id": "WATCH_LIST:DELETE",
+            "name": "$[{i18n_delete_duty_list}]",
+            "resourceId": "WATCH_LIST",
+            "parentRoles": [
+                "ADMIN"
+            ]
+        },
+        {
+            "id": "WATCH_LIST:EDIT",
+            "name": "$[{i18n_edit_duty_list}]",
+            "resourceId": "WATCH_LIST",
+            "parentRoles": [
+                "ADMIN"
+            ]
+        }
+    ],
+    "resources": [
+        {
+            "id": "FLOW",
+            "name": "$[{i18n_process}]"
+        },
+        {
+            "id": "FORM",
+            "name": "$[{i18n_form}]"
+        },
+        {
+            "id": "TICKET_CONFIG",
+            "name": "$[{i18n_ticket_template}]"
+        },
+        {
+            "id": "TICKET",
+            "name": "$[{i18n_ticket}]"
+        },
+        {
+            "id": "WATCH_LIST",
+            "name": "值班表"
+        }
+    ]
+}

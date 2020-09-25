@@ -1,0 +1,31 @@
+<div ng-cloak cg-busy="{promise:sidenavLoading, minDuration:500}">
+    <md-toolbar class="content-toolbar">
+        <div class="md-toolbar-tools">
+            <div>{{item.name}}</div>
+        </div>
+    </md-toolbar>
+    <md-content>
+        <md-tabs md-dynamic-height>
+            <md-tab label="{{'i18n_ticket_info' | translator:'工单信息'}}">
+                <form name="runtimeForm" ng-if="template">
+                    <form-runtime template="template" context="context" ng-disabled="true"></form-runtime>
+                    <div class="md-padding">
+                        <md-file-chips multiple placeholder="上传文件" max-files="10" business-key="{{item.id}}" disabled="true"></md-file-chips>
+                    </div>
+                </form>
+            </md-tab>
+            <md-tab label="{{'i18n_process_log' | translator:'流程日志'}}">
+                <process-log process-id="item.processId" ng-if="template"></process-log>
+            </md-tab>
+        </md-tabs>
+
+        <div layout="row" layout-align="start center" layout-margin>
+            <md-button class="md-raised md-accent" ng-click="cancel(item);" ng-if="item.status === 'RUNNING' && type == 'owner'">
+                {{'i18n_revocation' | translator:'撤销'}}
+            </md-button>
+            <md-button class="md-raised" ng-click="toggleForm();">
+                {{'i18n_close' | translator:'关闭'}}
+            </md-button>
+        </div>
+    </md-content>
+</div>

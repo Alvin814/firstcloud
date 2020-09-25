@@ -1,0 +1,59 @@
+<div layout-fill ng-controller="TicketConfigListCtrl" class="content-backdrop" ng-cloak>
+    <div layout="column" layout-fill cg-busy="{promise:loadingLayer, minDuration:500}">
+        <md-toolbar class="content-toolbar">
+            <div class="md-toolbar-tools">
+                <div>{{'i18n_ticket_template' | translator:'工单模板'}}</div>
+                <md-button class="md-primary" ng-click="edit({})">
+                    <md-icon>add_circle_outline</md-icon>
+                    {{'i18n_create' | translator:'创建'}}
+                </md-button>
+                <md-button class="md-primary" ng-click="tag()">
+                    <md-icon>bookmark</md-icon>
+                    {{'i18n_ticket_label' | translator:'工单标签'}}
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-content class="md-padding">
+            <filter-tools conditions="conditions" results="filters" quick-search="true" execute="list()">
+                <select-columns columns="columns"></select-columns>
+                <div class="filter-item">
+                    <md-button class="md-icon-button md-whiteframe-1dp" ng-click="list()">
+                        <md-tooltip md-delay="300">{{'i18n_refresh' | translator:'刷新'}}</md-tooltip>
+                        <md-icon>refresh</md-icon>
+                    </md-button>
+                </div>
+            </filter-tools>
+            <table dynamic-table columns="columns" execute="list({sql: sql})">
+                <tbody>
+                <tr ng-repeat="item in items">
+                    <td>{{item.name}}</td>
+                    <td>{{item.description}}</td>
+                    <td><a href="" class="md-primary" ng-click="editForm(item)">{{item.formId | selects:forms}}</a></td>
+                    <td><a href="" class="md-primary" ng-click="editModel(item)">{{item.modelId | selects:models}}</a></td>
+                    <td>{{item.time | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                    <td>
+                        <table-menus>
+                            <md-menu-item>
+                                <md-button ng-click="edit(item)">
+                                    <md-icon>edit</md-icon>
+                                    {{'i18n_edit' | translator:'编辑'}}
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button ng-click="delete(item)">
+                                    <md-icon>delete</md-icon>
+                                    {{'i18n_delete' | translator:'删除'}}
+                                </md-button>
+                            </md-menu-item>
+                        </table-menus>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <table-pagination pagination="pagination"></table-pagination>
+        </md-content>
+    </div>
+    <side-form width="80%"></side-form>
+</div>
+
+

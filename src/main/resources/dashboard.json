@@ -1,0 +1,36 @@
+[
+  {
+    "id": "1",
+    "title": "$[{i18n_ticket_summary}]",
+    "directive": "card-content-text",
+    "templateUrl": "/ticket-center/project/html/dashboard/dashboard-text.html",
+    "position": "left",
+    "order": 1,
+    "url": "/ticket-center/?banner=false#!/ticket/list",
+    "desc": "$[{i18n_go_to_ticket_center}]",
+    "height": "100px",
+    "permissions": [
+      "TICKET_MANAGER:MANAGER"
+    ],
+    "setting": {
+      "url": "/ticket-center/ticket/count/all"
+    }
+  },
+  {
+    "id": "2",
+    "title": "$[{i18n_my_ticket}]",
+    "directive": "card-content-text",
+    "templateUrl": "/ticket-center/project/html/dashboard/dashboard-text.html",
+    "position": "center",
+    "order": 2,
+    "url": "/ticket-center/?banner=false#!/ticket/list",
+    "desc": "$[{i18n_go_to_ticket_center}]",
+    "height": "100px",
+    "permissions": [
+      "TICKET:OWN"
+    ],
+    "setting": {
+      "url": "/ticket-center/ticket/count/own"
+    }
+  }
+]

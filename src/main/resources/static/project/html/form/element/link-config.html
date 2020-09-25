@@ -1,0 +1,34 @@
+<div class="element-config" layout="column">
+    <fieldset class="standard">
+        <legend>{{'i18n_element_prop' | translator:'属性'}}</legend>
+        <md-input-container class="md-block">
+            <label>ID</label>
+            <input ng-model="item.property.id">
+            <div class="hint">{{'i18n_element_title_hint' | translator:'编程使用，非空，唯一'}}</div>
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>{{'i18n_element_link_name' | translator:'链接名称'}}</label>
+            <input ng-model="item.property.label">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>{{'i18n_element_link_address' | translator:'链接地址'}}</label>
+            <input ng-model="item.property.href">
+        </md-input-container>
+    </fieldset>
+
+    <fieldset class="standard">
+        <legend>{{'i18n_form_event' | translator:'事件'}}</legend>
+        <md-list>
+            <md-list-item ng-repeat="name in item.event.names">
+                <p>
+                    {{name}}
+                    <span ng-if="item.event[name]">{ ... }</span>
+                </p>
+                <md-button class="md-icon-button md-primary" ng-click="editEvent(item.event, name)">
+                    <md-tooltip md-delay="300" md-direction="left">{{'i18n_event_edit' | translator:'编辑事件'}}</md-tooltip>
+                    <md-icon>edit</md-icon>
+                </md-button>
+            </md-list-item>
+        </md-list>
+    </fieldset>
+</div>

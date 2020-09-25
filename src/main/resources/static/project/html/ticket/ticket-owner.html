@@ -1,0 +1,41 @@
+<div layout-fill ng-controller="TicketOwnerCtrl" class="content-backdrop" ng-cloak>
+    <div layout="column" cg-busy="{promise:loadingLayer, minDuration:500}">
+        <md-toolbar class="content-toolbar">
+            <div class="md-toolbar-tools">
+                <div>{{'i18n_ticket_list' | translator:'工单列表'}}</div>
+            </div>
+        </md-toolbar>
+        <md-content class="md-padding">
+            <filter-tools conditions="conditions" results="filters" quick-search="true" execute="list()">
+                <select-columns columns="columns"></select-columns>
+                <div class="filter-item">
+                    <md-button class="md-icon-button md-whiteframe-1dp" ng-click="list()">
+                        <md-tooltip md-delay="300">{{'i18n_refresh' | translator:'刷新'}}</md-tooltip>
+                        <md-icon>refresh</md-icon>
+                    </md-button>
+                </div>
+            </filter-tools>
+            <table dynamic-table columns="columns" execute="list({sql: sql})">
+                <tbody>
+                <tr ng-repeat="item in items">
+                    <td><a href="" class="md-primary" ng-click="view(item)">{{item.id}}</a></td>
+                    <td>{{item.name}}</td>
+                    <td>
+                        <user-info user-id="item.creator"></user-info>
+                    </td>
+                    <td>
+                        <workspace-info id="item.workspaceId"></workspace-info>
+                    </td>
+                    <td>{{item.status | selects:status}}</td>
+                    <td>{{item.time | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                    <td>{{item.viewHandleTime}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <table-pagination pagination="pagination"></table-pagination>
+        </md-content>
+    </div>
+    <side-form width="80%"></side-form>
+</div>
+
+

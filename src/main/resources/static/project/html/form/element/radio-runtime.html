@@ -1,0 +1,6 @@
+<label class="form-element-radio-label">{{self.label}}</label>
+<md-radio-group ng-model="self.value" layout="row" ng-show="self.display !== false" ng-change="fireEvent(EVENT_NAME.CHANGE)">
+    <md-radio-button class="md-primary" ng-repeat="option in self.options" ng-value="option.key" ng-disabled="self.disabled">
+        {{option.value}}
+    </md-radio-button>
+</md-radio-group>

@@ -1,0 +1,46 @@
+<div ng-controller="TicketApplyCtrl" class="content-backdrop ticket-background" ng-cloak layout="column" layout-fill>
+    <div layout="column" cg-busy="{promise:loadingLayer, minDuration:500}" layout-fill>
+        <md-toolbar class="content-toolbar">
+            <div class="md-toolbar-tools">
+                <div>{{'i18n_ticket_apply' | translator:'提交工单'}}</div>
+            </div>
+        </md-toolbar>
+        <md-content class="md-padding" layout="column" flex="auto">
+            <div class="ticket-filter" layout="row" layout-padding layout-align="space-between center">
+                <div>
+                    <md-button class="md-raised" ng-class="{'md-primary':all === true}" ng-click="selectTag('ALL')">{{'i18n_all' | translator:'全部'}}</md-button>
+                    <md-button class="md-raised" ng-repeat="tag in tags" ng-click="selectTag(tag.tagKey)"
+                               ng-class="{'md-primary':tag.selected === true}">{{tag.tagName}}
+                    </md-button>
+                </div>
+                <div flex="auto"></div>
+                <div layout="row" layout-align="center center">
+                    <md-input-container class="ticket-filter-input">
+                        <label>{{'i18n_ticket_input_name_description' | translator:'请输入名称或描述'}}</label>
+                        <md-icon>search</md-icon>
+                        <input ng-model="param">
+                    </md-input-container>
+                </div>
+            </div>
+            <div layout="row" layout-wrap layout-padding>
+                <div ng-repeat="config in configs | props:{name:param, description:param} | orderBy:'name'" ng-if="config.show !== false"
+                     flex-gt-lg="20" flex-gt-md="25" flex-md="33" flex-gt-xs="50" flex-xs="100">
+                    <div class="ticket-card md-whiteframe-2dp" layout="column">
+                        <h3>{{config.name}}</h3>
+                        <div class="ticket-card-description">
+                            <md-tooltip md-delay="300" ng-if="config.description.length > 30">{{config.description}}</md-tooltip>
+                            {{config.description}}
+                        </div>
+                        <div flex="auto"></div>
+                        <div layout="row" layout-align="end center">
+                            <md-button class="md-primary" ng-click="apply(config)">{{'i18n_create' | translator:'创建'}}</md-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </md-content>
+    </div>
+    <side-form width="80%"></side-form>
+</div>
+
+

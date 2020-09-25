@@ -1,0 +1,68 @@
+{
+  "i18n_ex_ticket_template_id_empty": "工单模板ID不能为空",
+  "i18n_ex_ticket_template_not_found": "工单模板不存在，工单模板ID: ",
+  "i18n_ex_form_id_already_exist": "表单ID不可重复",
+  "i18n_ex_model_published": "模型已发布过",
+  "i18n_ex_ticket_template_tag": "标签已被工单模板%s使用",
+  "i18n_ticket_center_name": "工单中心",
+  "i18n_ticket_center_desc": "表单定义、流程定义、工单管理",
+  "i18n_form_management": "表单管理",
+  "i18n_process_manage": "流程管理",
+  "i18n_duty_list_management": "值班表管理",
+  "i18n_ticket_template_management": "工单模板管理",
+  "i18n_view_ticket": "查看工单",
+  "i18n_view_duty_list": "查看值班表",
+  "i18n_create_duty_list": "值班表创建",
+  "i18n_delete_duty_list": "值班表删除",
+  "i18n_edit_duty_list": "值班表编辑",
+  "i18n_process": "流程",
+  "i18n_form": "表单",
+  "i18n_ticket": "工单",
+  "工单示例流程": "工单示例流程",
+  "系统管理员处理": "系统管理员处理",
+  "流程完成": "流程完成",
+  "流程中止": "流程中止",
+  "流程撤销": "流程撤销",
+  "工单处理完成": "工单处理完成",
+  "工单已被驳回": "工单已被驳回",
+  "您的工单已处理完成。": "您的工单已处理完成。",
+  "您提交的工单已被驳回。": "您提交的工单已被驳回。",
+  "工单示例表单": "工单示例表单",
+  "i18n_get_template_list": "获取工单模板列表",
+  "i18n_get_template": "获取工单模板",
+  "i18n_delete_ticket": "删除工单(工单ID)",
+  "i18n_get_ticket": "获取工单(工单ID)",
+  "i18n_cancel_ticket": "撤销工单",
+  "i18n_get_ticket_by_task": "获取工单(任务ID)",
+  "i18n_ticket_complete": "审批工单-通过",
+  "i18n_reject_complete": "审批工单-驳回",
+  "i18n_create_ticketID": "生成工单ID"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

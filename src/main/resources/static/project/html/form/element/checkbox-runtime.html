@@ -1,0 +1,7 @@
+<label class="form-element-checkbox-label">{{self.label}}</label>
+<div layout="row" layout-align="start center">
+    <md-checkbox class="md-primary" ng-repeat="option in self.options" ng-model="option.checked" ng-disabled="self.disabled === true"
+                 ng-show="self.display !== false" ng-change="fireEvent(EVENT_NAME.CHANGE)">
+        {{option.label}}
+    </md-checkbox>
+</div>

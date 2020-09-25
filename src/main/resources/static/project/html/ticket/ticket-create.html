@@ -1,0 +1,23 @@
+<div ng-cloak cg-busy="{promise:sidenavLoading, minDuration:500}" style="height: 100%">
+    <md-toolbar class="content-toolbar">
+        <div class="md-toolbar-tools">
+            <div>{{config.name}}</div>
+        </div>
+    </md-toolbar>
+    <md-content class="ticket-content">
+        <form name="runtimeForm">
+            <form-runtime template="template" context="context" ng-if="template"></form-runtime>
+            <div class="md-padding">
+                <md-file-chips multiple placeholder="上传文件" max-files="10" business-key="{{ticketId}}" ng-if="ticketId"></md-file-chips>
+            </div>
+        </form>
+        <div layout="row" layout-align="start center" layout-margin>
+            <md-button class="md-raised md-primary" ng-click="create()" ng-disabled="runtimeForm.$invalid || !template">
+                {{'i18n_submit' | translator:'提交'}}
+            </md-button>
+            <md-button class="md-raised" ng-click="cancel();">
+                {{'i18n_cancel' | translator:'取消'}}
+            </md-button>
+        </div>
+    </md-content>
+</div>

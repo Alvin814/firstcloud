@@ -1,0 +1,9 @@
+<md-input-container class="md-block form-element-input">
+    <label>{{item.property.label}}</label>
+    <input name="{{item.property.id}}" ng-required="item.property.required" md-maxlength="item.property.max" ng-model="item.property.empty" readonly>
+    <div ng-messages="form[item.property.id].$error">
+        <div ng-message="required">{{'i18n_required' | translator:'必填'}}.</div>
+        <div ng-message="md-maxlength">{{'i18n_element_input_text_limit' | translator:'最大字符数:'}}{{item.property.max}}</div>
+    </div>
+    <div class="hint">{{item.property.hint}}</div>
+</md-input-container>

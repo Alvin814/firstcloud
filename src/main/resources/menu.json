@@ -1,0 +1,132 @@
+{
+    "version": "2.0",
+    "menu": [
+        {
+            "id": "ticket-apply",
+            "order": 1,
+            "title": "$[{i18n_ticket_apply}]",
+            "icon": "subtitles",
+            "name": "ticket_apply",
+            "url": "/ticket/apply",
+            "default": true,
+            "templateUrl": "project/html/ticket/ticket-apply.html",
+            "requiredPermissions": [
+                {
+                    "role": "USER",
+                    "logical": "OR",
+                    "permissions": [
+                        "TICKET:APPLY"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "ticket-user",
+            "order": 2,
+            "title": "$[{i18n_my_ticket}]",
+            "icon": "list_alt",
+            "name": "ticket_owner",
+            "url": "/ticket/owner",
+            "templateUrl": "project/html/ticket/ticket-owner.html",
+            "requiredPermissions": [
+                {
+                    "role": "USER",
+                    "logical": "OR",
+                    "permissions": [
+                        "TICKET:READ"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "ticket-org",
+            "order": 2,
+            "title": "$[{i18n_ticket_list}]",
+            "icon": "list_alt",
+            "name": "ticket_owner",
+            "url": "/ticket/owner",
+            "templateUrl": "project/html/ticket/ticket-owner.html",
+            "requiredPermissions": [
+                {
+                    "role": "ORGADMIN",
+                    "logical": "OR",
+                    "permissions": [
+                        "TICKET:READ"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "ticket-list",
+            "order": 2,
+            "title": "$[{i18n_ticket_list}]",
+            "icon": "list_alt",
+            "name": "ticket_list",
+            "url": "/ticket/list",
+            "templateUrl": "project/html/ticket/ticket-list.html",
+            "requiredPermissions": [
+                {
+                    "role": "ADMIN",
+                    "logical": "OR",
+                    "permissions": [
+                        "TICKET:READ"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "ticket-config",
+            "order": 3,
+            "title": "$[{i18n_ticket_template}]",
+            "icon": "ballot",
+            "name": "ticket_config",
+            "url": "/ticket/config",
+            "templateUrl": "project/html/ticket/ticket-config-list.html",
+            "requiredPermissions": [
+                {
+                    "role": "ADMIN",
+                    "logical": "OR",
+                    "permissions": [
+                        "TICKET_CONFIG:MANAGER"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "form-manager",
+            "order": 4,
+            "title": "$[{i18n_form_management}]",
+            "icon": "view_compact",
+            "name": "form_manager",
+            "url": "/form/manager",
+            "templateUrl": "project/html/form/form-list.html",
+            "requiredPermissions": [
+                {
+                    "role": "ADMIN",
+                    "logical": "OR",
+                    "permissions": [
+                        "FORM:MANAGER"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "flow-manager",
+            "order": 5,
+            "title": "$[{i18n_process_manage}]",
+            "icon": "linear_scale",
+            "name": "flow_manager",
+            "url": "/flow",
+            "templateUrl": "web-public/fit2cloud/html/process/process-management.html",
+            "requiredPermissions": [
+                {
+                    "role": "ADMIN",
+                    "logical": "OR",
+                    "permissions": [
+                        "FLOW:MANAGER"
+                    ]
+                }
+            ]
+        }
+    ]
+}

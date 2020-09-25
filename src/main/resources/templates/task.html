@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{'web-public/fit2cloud/img/fit2cloud/favicon.bmp'}">
+    <title>工单中心</title>
+    <!--必要CSS-->
+    <link rel="stylesheet" th:href="@{'/web-public/external/angular-material/angular-material.min.css'}">
+    <link rel="stylesheet" th:href="@{'/web-public/external/angular-busy/angular-busy.min.css'}">
+    <link rel="stylesheet" th:href="@{'/web-public/external/material-icons/material-icons.css'}">
+    <link rel="stylesheet" th:href="@{'/web-public/fit2cloud/css/fit2cloud-style.css?t='+${timestamp}}">
+
+    <!--项目CSS-->
+    <link rel="stylesheet" th:href="@{'project/css/project-style.css?t='+${timestamp}}">
+</head>
+
+<body ng-app="TaskApp" ng-controller="TicketTaskCtrl" ng-cloak>
+<div ng-cloak ng-if="ticket" cg-busy="{promise:loadingLayer, minDuration:500}" style="height: 100%">
+    <md-toolbar class="content-toolbar">
+        <div class="md-toolbar-tools">
+            <div>{{ticket.name}}</div>
+        </div>
+    </md-toolbar>
+    <md-content class="ticket-content" ng-if="template">
+        <md-tabs md-dynamic-height>
+            <md-tab label="{{'i18n_ticket_info' | translator:'工单信息'}}">
+                <form name="taskForm">
+                    <form-runtime template="template" context="context" ng-disabled="true" ng-if="template"></form-runtime>
+                    <form-runtime template="templateCu" context="context" ng-disabled="false" ng-if="templateCu && task.taskStatus !='COMPLETED'"></form-runtime>
+                    <div class="md-padding">
+                        <md-file-chips multiple placeholder="上传文件" max-files="10" business-key="{{ticketId}}" disabled="true"></md-file-chips>
+                    </div>
+                    <div class="md-padding" ng-if="task.taskStatus !='COMPLETED'">
+                        <md-input-container class="md-block">
+                            <label>{{'i18n_remark' | translator:'备注'}}</label>
+                            <textarea name="remarks" md-no-autogrow ng-model="remarks.content" rows="3" placeholder="{{'i18n_please_enter_remark' | translator:'填写处理意见'}}"></textarea>
+                            <div ng-messages="taskForm.remarks.$error">
+                                <div ng-message="required">{{'i18n_required' | translator:'必填'}}.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </form>
+            </md-tab>
+            <md-tab label="{{'i18n_process_log' | translator:'流程日志'}}">
+                <process-log process-id="task.processId" ng-if="task"></process-log>
+            </md-tab>
+        </md-tabs>
+        <div layout="row" layout-align="start center" layout-margin>
+            <md-button class="md-raised md-accent" ng-click="reject()" ng-if="task.taskStatus ==='PENDING'">
+                {{'i18n_order_reject' | translator:'驳回'}}
+            </md-button>
+    
+            <md-button class="md-raised md-primary" ng-click="complete()" ng-if="task.taskStatus ==='PENDING'" ng-disabled="taskForm.$invalid">
+                {{'i18n_order_approved' | translator:'通过'}}
+            </md-button>
+        </div>
+    </md-content>
+
+    
+</div>
+
+<!--必要JS-->
+<script th:src="@{'/web-public/external/external.min.js?t='+${timestamp}}"></script>
+<script th:src="@{'/web-public/fit2cloud/js/fit2cloud-common.min.js?t='+${timestamp}}"></script>
+<script th:src="@{'/web-public/fit2cloud/js/process-design.js?t='+${timestamp}}"></script>
+<script th:inline="javascript" type="text/javascript">
+    /*<![CDATA[*/
+    window.appversion = [[${timestamp}]];
+    //防止页面后退
+    history.pushState(null, null, document.URL);
+    window.addEventListener('popstate', function () {
+        history.pushState(null, null, document.URL);
+    });
+    if (window.parent.api) window.parent.api.inbox(true);
+    /*]]>*/
+</script>
+
+<!--项目JS-->
+<script th:src="@{'project/js/form.js?t='+${timestamp}}"></script>
+<script th:src="@{'project/js/task.js?t='+${timestamp}}"></script>
+
+</body>
+</html>

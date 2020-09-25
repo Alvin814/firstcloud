@@ -1,0 +1,64 @@
+{
+  "i18n_ex_ticket_template_id_empty": "Ticket template ID cannot be empty",
+  "i18n_ex_ticket_template_not_found": "Ticket template does not exist: ",
+  "i18n_ex_form_id_already_exist": "Form id already exists",
+  "i18n_ex_model_published": "This model has been published",
+  "i18n_ex_ticket_template_tag": "The label has been used by the ticket template %s",
+  "i18n_ticket_center_name": "Ticket Center",
+  "i18n_ticket_center_desc": "Form definition, process definition, ticket management",
+  "i18n_form_management": "Form",
+  "i18n_process_manage": "Process",
+  "i18n_ticket_template_management": "Ticket management",
+  "i18n_duty_list_management": "Duty list management",
+  "i18n_view_ticket": "View ticket",
+  "i18n_view_duty_list": "View duty list",
+  "i18n_create_duty_list": "Create duty list",
+  "i18n_delete_duty_list": "Delete duty list",
+  "i18n_edit_duty_list": "Edit duty list",
+  "i18n_process": "Process",
+  "i18n_form": "Form",
+  "i18n_ticket": "Ticket",
+  "工单示例流程": "Ticket Example",
+  "系统管理员处理": "System administrator processing",
+  "流程完成": "Process completion",
+  "流程中止": "Process abort",
+  "流程撤销": "Process revocation",
+  "工单处理完成": "Ticket processing completed",
+  "工单已被驳回": "Ticket has been rejected",
+  "您的工单已处理完成。": "Your ticket has been processed.",
+  "您提交的工单已被驳回。": "The ticket you submitted has been rejected.",
+  "工单示例表单": "Ticket sample form",
+  "i18n_get_template_list": "Get a list of ticket templates",
+  "i18n_get_template": "Get ticket template",
+  "i18n_delete_ticket": "Delete ticket (ticket ID)",
+  "i18n_get_ticket": "Get ticket (ticket ID)",
+  "i18n_cancel_ticket": "Revocation of ticket",
+  "i18n_get_ticket_by_task": "Get ticket (Task ID)",
+  "i18n_ticket_complete": "Ticket Pass",
+  "i18n_reject_complete": "Ticket Rejected",
+  "i18n_create_ticketID": "Generate ticket ID"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

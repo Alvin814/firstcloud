@@ -1,0 +1,8 @@
+<div class="md-padding" cg-busy="{promise:loadingLayer, minDuration:200}" ng-cloak>
+    <div layout="row" ng-repeat="row in template.content.rows">
+        <div flex="{{cell.width}}" ng-repeat="cell in row.cells">
+            <element-runtime element="cell.element" context="context" ctrl="ctrl" service="service" ng-if="cell.element"
+                             ng-disabled="disabled"></element-runtime>
+        </div>
+    </div>
+</div>

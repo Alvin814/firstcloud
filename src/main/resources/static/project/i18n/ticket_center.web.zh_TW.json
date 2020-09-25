@@ -1,0 +1,190 @@
+{
+  "i18n_ticket_apply": "提交工單",
+  "i18n_ticket_download": "導出工單",
+  "i18n_all": "全部",
+  "i18n_ticket_input_name_description": "請輸入名稱或描述",
+  "i18n_ticket_name": "工單名稱",
+  "i18n_ticket_description": "工單描述",
+  "i18n_ticket_template_name": "工單模版名稱",
+  "i18n_ticket_template_description": "工單模版描述",
+  "i18n_input_length_limit_30": "不要超過30個字符",
+  "i18n_input_length_limit_50": "不要超過50個字符",
+  "i18n_input_length_limit_64": "不要超過64個字符",
+  "i18n_input_length_limit_100": "不要超過100個字符",
+  "i18n_input_length_limit_255": "不要超過255個字符",
+  "i18n_ticket_bind_form": "綁定表單",
+  "i18n_form_name": "表單名稱",
+  "i18n_form_name_search": "按表單名稱搜索",
+  "i18n_ticket_bind_process": "綁定流程",
+  "i18n_process_name": "流程名稱",
+  "i18n_process_name_search": "按流程名稱搜索",
+  "i18n_ticket_label": "工單標籤",
+  "i18n_label_name": "標籤名稱",
+  "i18n_label_name_search": "按標籤名稱搜索",
+  "i18n_ticket_template_add": "創建工單模板",
+  "i18n_ticket_template_edit": "編輯工單模板",
+  "i18n_ticket_template": "工單模版",
+  "i18n_ticket_list": "工單列表",
+  "i18n_revocation": "撤銷",
+  "i18n_ticket_info": "工單信息",
+  "i18n_process_log": "流程日誌",
+  "i18n_ticket_update_date": "修改時間",
+  "i18n_ticket_delete_confirm": "確認執行刪除?",
+  "i18n_ticket_delete_success": "刪除成功",
+  "i18n_ticket_delete_failed": "刪除失敗",
+  "i18n_ticket_save_success": "保存成功",
+  "i18n_ticket_save_failed": "保存失敗",
+  "i18n_not_published": "[未發布]",
+  "i18n_ticket_submit_failed_without_form": "提交失敗，未綁定表單或流程模型",
+  "i18n_ticket_submit_failed": "提交失敗",
+  "i18n_ticket_submit_success": "提交成功",
+  "i18n_status_created": "已創建",
+  "i18n_status_running": "待處理",
+  "i18n_status_cancel": "已撤銷",
+  "i18n_status_complete": "已完成",
+  "i18n_status_terminated": "已中止",
+  "i18n_status_reject": "已駁回",
+  "i18n_ticket_creator": "提交人",
+  "i18n_ticket_create_time": "提交日期",
+  "i18n_ticket_processing_time": "處理時長",
+  "i18n_ticket_id": "工單ID",
+  "i18n_ticket_cancel_confirm": "確定撤銷工單？",
+  "i18n_ticket_cancel_success": "撤銷成功",
+  "i18n_ticket_cancel_failed": "撤銷失敗",
+  "i18n_event_self": "當前控件對象, 通過self.value可以獲取當前控件的值",
+  "i18n_event_ctrl": "所有控件對象，通過ctrl[控件ID]可獲取控件對象，例如ctrl['name']可以獲取到ID為name的控件對象",
+  "i18n_event_context": "暫時為空",
+  "i18n_event_service": "提供show(id),hide(id),enable(id),disable(id)方法，其中id為控件ID",
+  "i18n_event_service_1": "此外service提供2個對象,如下：",
+  "i18n_event_service_2": "$http: angular js的$http",
+  "i18n_event_service_3": "notice: 通知功能對象，含有方法:success(msg),info(msg),warn(msg),danger(msg)等，例如service.notice.success('提交成功')",
+  "i18n_event_service_4": "查看對象方法，可在事件內填寫console.log(self)或console.log(ctrl)或console.log(service)，在控制台查看對象內容",
+  "i18n_event_edit": "編輯事件",
+  "i18n_event_content": "事件內容",
+  "i18n_event_placeholder": "添加事件內容，不需要寫{ }，支持AngularJS v1.7.2",
+  "i18n_form_event": "事件",
+  "i18n_form_column_add": "增加列",
+  "i18n_form_column_delete": "刪除列",
+  "i18n_form_element_delete": "刪除控件",
+  "i18n_form_row_add": "增加行",
+  "i18n_form_row_delete": "刪除行",
+  "i18n_form_design": "表單設計",
+  "i18n_preview": "預覽",
+  "i18n_form_content": "表單內容",
+  "i18n_form_cannot_modify": "保存後不能修改",
+  "i18n_form_id": "表單ID",
+  "i18n_form_config": "表單配置",
+  "i18n_element_config": "控件配置",
+  "i18n_copy": "複製",
+  "i18n_form_list": "表單列表",
+  "i18n_element_add": "添加",
+  "i18n_element_prop": "屬性",
+  "i18n_element_title": "標題",
+  "i18n_element_disable": "禁用",
+  "i18n_element_title_hint": "編程使用，非空，唯一",
+  "i18n_element_option": "候選項",
+  "i18n_element_input_type": "輸入類型",
+  "i18n_element_input_text": "文本",
+  "i18n_element_input_number": "數字",
+  "i18n_element_input_password": "密碼",
+  "i18n_element_input_maxlength": "最大長度",
+  "i18n_element_input_hint": "提示語",
+  "i18n_element_input_text_limit": "最大字符數:",
+  "i18n_element_link_name": "鏈接名稱",
+  "i18n_element_link_address": "鏈接地址",
+  "i18n_element_input_row_number": "行數",
+  "i18n_form_version": "表單版本",
+  "i18n_form_published": "是否發布",
+  "i18n_form_copy": "複製表單",
+  "i18n_form_element_replace_confirm": "確定替換控件?",
+  "i18n_form_copy_success": "複製成功",
+  "i18n_form_copy_failed": "複製失敗",
+  "i18n_form_publish_success": "發布成功",
+  "i18n_form_publish_failed": "發布失敗",
+  "i18n_form_rows_number_max_limit": "最多50行",
+  "i18n_form_rows_number_min_limit": "至少保留1行",
+  "i18n_from_cells_number_max_limit": "最多4個單元格",
+  "i18n_from_cells_number_min_limit": "至少保留1個單元格",
+  "i18n_form_set_width": "設置寬度",
+  "i18n_form_set_width_text": "整數: 5的倍數(10 - 90), 33, 66 或者 auto",
+  "i18n_element_type_input": "輸入框",
+  "i18n_element_type_select": "下拉框",
+  "i18n_element_type_textarea": "富文本",
+  "i18n_element_type_checkbox": "複選框",
+  "i18n_element_type_radio": "單選框",
+  "i18n_element_type_date": "日期",
+  "i18n_element_type_link": "鏈接",
+  "i18n_element_type_switch": "開關",
+  "i18n_ticket_tag_placeholder": "填寫標籤名稱，最多100個字符",
+  "i18n_ticket_summary": "工單統計",
+  "i18n_my_ticket": "我的工單",
+  "i18n_go_to_ticket_center": "轉到工單中心",
+  "i18n_remark": "備註",
+  "i18n_please_enter_remark": "填寫處理意見",
+  "i18n_duty_name": "值班人名稱",
+  "i18n_duty_date": "值班日期",
+  "i18n_morning_duty_person": "早班值班人",
+  "i18n_night_duty_person": "晚班值班人",
+  "i18n_create_success": "創建成功",
+  "i18n_create_failed": "創建失敗",
+  "i18n_edit_duty_table": "編輯值班表",
+  "i18n_create_duty_table": "創建值班表",
+  "i18n_name_search": "按名稱搜索",
+  "i18n_create": "創建",
+  "i18n_update": "更新",
+  "i18n_duty_person_list": "值班人列表"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

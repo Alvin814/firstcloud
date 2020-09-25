@@ -1,0 +1,44 @@
+<div ng-controller="TicketTagCtrl" ng-cloak cg-busy="{promise:sidenavLoading, minDuration:500}">
+    <md-toolbar class="content-toolbar">
+        <div class="md-toolbar-tools">
+            <h2>{{'i18n_ticket_label' | translator:'工单标签'}}</h2>
+            <span flex></span>
+            <md-button class="md-primary" ng-click="close()">
+                {{'i18n_close' | translator:'关闭'}}
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-content class="md-padding">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>{{'i18n_ticket_label' | translator:'工单标签'}}</th>
+                <th class="ticket-tag-operation">{{'i18n_operation' | translator:'操作'}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in items">
+                <td>
+                    <div ng-if="item.edit !== true">{{item.tagName}}</div>
+                    <input class="ticket-tag-input" placeholder="{{'i18n_ticket_tag_placeholder' | translator:'填写标签名称，最多100个字符'}}" ng-model="item.temp" ng-if="item.edit === true">
+                </td>
+                <td>
+                    <md-button class="ticket-tag-btn md-primary" ng-click="item.edit = true;item.temp =item.tagName;" ng-if="item.edit !== true">
+                        {{'i18n_edit' | translator:'编辑'}}
+                    </md-button>
+                    <md-button class="ticket-tag-btn md-primary" ng-click="save(item)" ng-if="item.edit === true"
+                               ng-disabled="!item.temp  || item.temp.length > 100">
+                        {{'i18n_save' | translator:'保存'}}
+                    </md-button>
+                    <md-button class="ticket-tag-btn md-primary" ng-click="item.edit = false" ng-if="item.edit === true && item.tagKey">
+                        {{'i18n_cancel' | translator:'取消'}}
+                    </md-button>
+                    <md-button class="ticket-tag-btn md-primary" ng-click="delete(item)" ng-if="item.tagKey">
+                        {{'i18n_delete' | translator:'删除'}}
+                    </md-button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </md-content>
+</div>

@@ -1,0 +1,85 @@
+<div ng-cloak cg-busy="{promise:sidenavLoading, minDuration:500}">
+    <md-toolbar class="content-toolbar">
+        <div class="md-toolbar-tools">
+            <h2 ng-if="item.id">{{'i18n_ticket_template_edit' | translator:'编辑工单模板'}}</h2>
+            <h2 ng-if="!item.id">{{'i18n_ticket_template_add' | translator:'创建工单模板'}}</h2>
+            <span flex></span>
+            <md-button class="md-primary" ng-click="close()">
+                {{'i18n_close' | translator:'关闭'}}
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-content class="md-padding">
+        <form name="ticketForm">
+            <div class="md-dialog-content" layout="column">
+                <div layout="column">
+                    <md-input-container>
+                        <label>{{'i18n_ticket_name' | translator:'工单模板名称'}}</label>
+                        <input md-maxlength="50" required name="name" ng-model="item.name" autocomplete="off">
+                        <div ng-messages="ticketForm.name.$error">
+                            <div ng-message="required">{{'i18n_required' | translator:'必填'}}.</div>
+                            <div ng-message="md-maxlength">{{'i18n_input_length_limit_50' | translator:'不要超过50个字符'}}</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container>
+                        <label>{{'i18n_ticket_description' | translator:'工单模板描述'}}</label>
+                        <input md-maxlength="100" name="desc" ng-model="item.description" autocomplete="off">
+                        <div ng-messages="ticketForm.desc.$error">
+                            <div ng-message="md-maxlength">{{'i18n_input_length_limit_100' | translator:'不要超过100个字符'}}</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container flex="auto">
+                        <label>{{'i18n_ticket_bind_process' | translator:'绑定流程'}}</label>
+                        <md-select ng-model="item.modelId" name="modelId" required md-on-close="searchModel = ''">
+                            <md-select-header class="select-header">
+                                <input class="select-search" ng-model="searchModel" placeholder="{{'i18n_process_name_search' | translator:'按流程名称搜索'}}" autocomplete="off">
+                            </md-select-header>
+                            <md-optgroup label="{{'i18n_process_name' | translator:'流程名称'}}">
+                                <md-option ng-repeat="model in models | filter:{name:searchModel}" ng-value="model.key">{{model.name}}
+                                </md-option>
+                            </md-optgroup>
+                        </md-select>
+                        <div ng-messages="ticketForm.operation.$error">
+                            <div ng-message="required">{{'i18n_required' | translator:'必填'}}.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <!--<div layout="row">
+                    <md-input-container flex="auto">
+                        <label>绑定表单</label>
+                        <md-select ng-model="item.formId" name="formId" required md-on-close="searchForm = ''">
+                            <md-select-header class="select-header">
+                                <input class="select-search" ng-model="searchForm" placeholder="按表单名称搜索" autocomplete="off">
+                            </md-select-header>
+                            <md-optgroup label="表单名称">
+                                <md-option ng-repeat="form in forms | filter:{name:searchForm}" ng-value="form.key">{{form.name}}</md-option>
+                            </md-optgroup>
+                        </md-select>
+                        <div ng-messages="ticketForm.formId.$error">
+                            <div ng-message="required">必选.</div>
+                        </div>
+                    </md-input-container>
+
+                </div>-->
+                <md-input-container>
+                    <label>{{'i18n_ticket_label' | translator:'工单标签'}}</label>
+                    <md-select ng-model="item.tags" md-on-close="searchTag = ''" multiple>
+                        <md-select-header class="select-header">
+                            <input class="select-search" ng-model="searchTag" placeholder="{{'i18n_label_name_search' | translator:'按标签名称搜索'}}" autocomplete="off">
+                        </md-select-header>
+                        <md-optgroup label="{{'i18n_label_name' | translator:'标签名称'}}">
+                            <md-option ng-repeat="tag in tags | filter:{tagName:searchTag}" ng-value="tag.tagKey">{{tag.tagName}}
+                            </md-option>
+                        </md-optgroup>
+                    </md-select>
+                </md-input-container>
+            </div>
+        </form>
+        <md-button class="md-raised" ng-click="close()">
+            {{'i18n_cancel' | translator:'取消'}}
+        </md-button>
+        <md-button class="md-raised md-primary" ng-click="save()" ng-disabled="ticketForm.$invalid">
+            {{'i18n_ok' | translator:'确定'}}
+        </md-button>
+    </md-content>
+</div>

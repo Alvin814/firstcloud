@@ -1,0 +1,6 @@
+<div class="form-element-radio">
+    <label class="form-element-radio-label">{{item.property.label}}</label>
+    <md-radio-group ng-model="item.property.empty" layout="row" layout-align="start center">
+        <md-radio-button class="md-primary" ng-repeat="option in item.property.options" ng-value="option.key">{{option.value}}</md-radio-button>
+    </md-radio-group>
+</div>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fit2cloud.ticket.dao.mapper.ext.ExtTicketMapper">
+
+    <select id="listTicketForm" parameterType="com.fit2cloud.ticket.controller.request.ListTicketFormRequest"
+            resultMap="com.fit2cloud.ticket.dao.mapper.TicketFormMapper.BaseResultMap">
+        select
+        <include refid="com.fit2cloud.ticket.dao.mapper.TicketFormMapper.Base_Column_List"/>
+        from ticket_form
+        <where>
+            <if test="quickSearch != null">
+                and
+                ( name like #{quickSearch} or id like #{quickSearch} )
+            </if>
+            <if test="name != null">
+                and name like #{name}
+            </if>
+        </where>
+        <if test="sort != null">
+            order by ${sort}
+        </if>
+        <if test="sort == null">
+            order by id
+        </if>
+    </select>
+
+    <select id="listTicket" parameterType="com.fit2cloud.ticket.controller.request.ListTicketRequest"
+            resultMap="com.fit2cloud.ticket.dao.mapper.TicketMapper.BaseResultMap">
+        select * from ticket
+        <where>
+            <if test="quickSearch != null">
+                and
+                ( id like #{quickSearch} or creator like #{quickSearch} )
+            </if>
+            <if test="name != null">
+                and name like #{name}
+            </if>
+            <if test="creator != null">
+                and creator like #{creator}
+            </if>
+            <if test="owner != null">
+                and creator = #{owner}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="handleProgram != null">
+                and handle_program = #{handleProgram}
+            </if>
+            <if test="handleResult != null">
+                and handle_result = #{handleResult}
+            </if>
+            <if test="ticketHandleResult != null">
+                and ticket_handle_result = #{ticketHandleResult}
+            </if>
+            <if test="handleSpeed != null">
+                and handle_speed = #{handleSpeed}
+            </if>
+            <if test="handleAttitude != null">
+                and handle_attitude = #{handleAttitude}
+            </if>
+            <if test="handleSatisfaction != null">
+                and handle_satisfaction = #{handleSatisfaction}
+            </if>
+            <if test="workspaceId != null">
+                and workspace_id = #{workspaceId}
+            </if>
+            <if test="workspaceIds != null and workspaceIds.size() > 0">
+                and workspace_id in
+                <foreach collection="workspaceIds" item="id" index="index" open="(" close=")" separator=",">
+                    #{id}
+                </foreach>
+            </if>
+            <if test="timeStart != null">
+                and time &gt;= ${timeStart}
+            </if>
+            <if test="timeEnd != null">
+                and time &lt; ${timeEnd}
+            </if>
+        </where>
+        <if test="sort != null">
+            order by ${sort}
+        </if>
+        <if test="sort == null">
+            order by time desc
+        </if>
+    </select>
+
+    <select id="listTicketConfig" parameterType="com.fit2cloud.ticket.controller.request.ListTicketConfigRequest"
+            resultMap="com.fit2cloud.ticket.dao.mapper.TicketConfigMapper.BaseResultMap">
+        select * from ticket_config
+        <where>
+            <if test="quickSearch != null">
+                and
+                ( name like #{quickSearch} or description like #{quickSearch} )
+            </if>
+            <if test="name != null">
+                and name like #{name}
+            </if>
+            <if test="description != null">
+                and description like #{description}
+            </if>
+        </where>
+        <if test="sort != null">
+            order by ${sort}
+        </if>
+        <if test="sort == null">
+            order by time desc
+        </if>
+    </select>
+
+    <select id="listByTag" parameterType="java.lang.String" resultMap="com.fit2cloud.ticket.dao.mapper.TicketConfigMapper.BaseResultMap">
+      SELECT * FROM ticket_config
+      WHERE id IN(
+		SELECT
+			ticket_config_id
+		FROM
+			ticket_tag_mapping
+		WHERE
+			tag_key = #{tagKey}
+	  )
+    </select>
+
+    <select id="listUsingTag" resultMap="com.fit2cloud.ticket.dao.mapper.TicketTagMapper.BaseResultMap">
+        SELECT * FROM ticket_tag
+        WHERE EXISTS(
+          SELECT tag_key FROM ticket_tag_mapping
+          WHERE ticket_tag_mapping.tag_key = ticket_tag.tag_key
+        )
+    </select>
+
+    <select id="analysisAllTicket" resultType="com.fit2cloud.ticket.dao.model.ext.TicketCount">
+        SELECT
+            count(1) as created,
+            (SELECT count(1) FROM ticket WHERE `status` = 'RUNNING' ) AS running,
+            (SELECT count(1) FROM ticket WHERE `status` = 'COMPLETE') AS complete,
+            (SELECT count(1) FROM ticket WHERE `status` = 'TERMINATED') AS `terminated`
+        FROM ticket LIMIT 1
+    </select>
+
+    <select id="analysisMyTicket" resultType="com.fit2cloud.ticket.dao.model.ext.TicketCount">
+        SELECT
+            (SELECT count(1) FROM ticket WHERE creator = #{creator} and workspace_id = #{workspaceId}) AS created,
+            (SELECT count(1) FROM ticket WHERE `status` = 'RUNNING' and creator = #{creator} and workspace_id = #{workspaceId}) AS running,
+            (SELECT count(1) FROM ticket WHERE `status` = 'COMPLETE' and creator = #{creator} and workspace_id = #{workspaceId}) AS complete,
+            (SELECT count(1) FROM ticket WHERE `status` = 'TERMINATED' and creator = #{creator} and workspace_id = #{workspaceId}) AS `terminated`
+        FROM ticket LIMIT 1
+    </select>
+</mapper>

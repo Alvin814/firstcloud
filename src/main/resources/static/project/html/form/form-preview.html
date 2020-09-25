@@ -1,0 +1,24 @@
+<md-dialog class="md-default-dialog form-preview-dialog" aria-label="Preview Form">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>{{'i18n_preview' | translator:'预览'}}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="close()">
+                <md-icon class="md-light">close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <form name="runtimeForm">
+                <form-runtime template="template" context="context"></form-runtime>
+            </form>
+        </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row" layout-align="center center">
+        <md-button ng-click="close()">
+            {{'i18n_close' | translator:'关闭'}}
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

@@ -1,0 +1,64 @@
+<div ng-cloak cg-busy="{promise:sidenavLoading, minDuration:500}">
+    <md-toolbar class="content-toolbar">
+        <div class="md-toolbar-tools">
+            <h2 ng-if="type === TYPES.UPDATE">{{'i18n_edit_duty_table' | translator:'编辑值班表'}}</h2>
+            <h2 ng-if="type === TYPES.CREATE">{{'i18n_create_duty_table' | translator:'创建值班表'}}</h2>
+            <span flex></span>
+            <md-button class="md-primary" ng-click="close()">
+                {{'i18n_close' | translator:'关闭'}}
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-content class="md-padding">
+        <form name="ticketForm">
+            <div class="md-dialog-content" layout="column">
+                <div layout="column">
+                    <md-input-container ng-if="type === TYPES.CREATE">
+                        <label>{{'i18n_duty_date' | translator:'值班日期'}}</label>
+                            <input type="date" ng-model="$parent.tempItem.watchDate"  required/>
+                    </md-input-container>
+                    <md-input-container ng-if="type === TYPES.UPDATE">
+                        <label>{{'i18n_duty_date' | translator:'值班日期'}}</label>
+                        <input type="text" ng-value="$parent.tempItem.watchDate"  disabled readonly/>
+                    </md-input-container>
+                    <md-input-container flex="auto">
+                        <label>{{'i18n_morning_duty_person' | translator:'早班值班人'}}</label>
+                        <md-select ng-model="tempItem.dayUserId" name="dayUserId"  md-on-close="searchModel = ''"  chosen multiple required>
+                            <md-select-header class="select-header">
+                                <input class="select-search" ng-model="searchModel" placeholder="{{'i18n_name_search' | translator:'按名称搜索'}}" autocomplete="off"
+                                       ng-keydown="$event.stopPropagation()">
+                            </md-select-header>
+                            <md-optgroup label="{{'i18n_duty_name' | translator:'值班人名称'}}">
+                                <md-option ng-repeat="dayUser in dayUsers | filter:{name:searchModel}" ng-value="dayUser.key">{{dayUser.name}}
+                                </md-option>
+                            </md-optgroup>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container flex="auto">
+                        <label>{{'i18n_night_duty_person' | translator:'晚班值班人'}}</label>
+                        <md-select ng-model="tempItem.nightUserId" name="nightUserId"  md-on-close="searchModel = ''"  chosen multiple required>
+                            <md-select-header class="select-header">
+                                <input class="select-search" ng-model="searchModel" placeholder="{{'i18n_name_search' | translator:'按名称搜索'}}" autocomplete="off"
+                                       ng-keydown="$event.stopPropagation()">
+                            </md-select-header>
+                            <md-optgroup label="{{'i18n_duty_name' | translator:'值班人名称'}}">
+                                <md-option ng-repeat="dayUser in dayUsers | filter:{name:searchModel}" ng-value="dayUser.key">{{dayUser.name}}
+                                </md-option>
+                            </md-optgroup>
+                        </md-select>
+                    </md-input-container>
+
+                </div>
+            </div>
+        </form>
+        <md-button class="md-raised" ng-click="close()">
+            {{'i18n_cancel' | translator:'取消'}}
+        </md-button>
+        <md-button class="md-raised md-primary" ng-click="create(tempItem)" ng-if="type == TYPES.CREATE" ng-disabled="ticketForm.$invalid">
+            {{'i18n_create' | translator:'创建'}}
+        </md-button>
+        <md-button class="md-raised md-primary" ng-click="update(tempItem)" ng-if="type == TYPES.UPDATE" ng-disabled="ticketForm.$invalid">
+            {{'i18n_update' | translator:'更新'}}
+        </md-button>
+    </md-content>
+</div>

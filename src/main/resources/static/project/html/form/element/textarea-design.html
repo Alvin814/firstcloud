@@ -1,0 +1,8 @@
+<md-input-container class="md-block form-element-textarea">
+    <label>{{item.property.label}}</label>
+    <textarea name="{{item.property.id}}" ng-required="item.property.required" ng-model="item.property.empty"
+              rows="{{item.property.rows}}" placeholder="{{item.property.hint}}" md-no-autogrow readonly></textarea>
+    <div ng-messages="form[item.property.id].$error">
+        <div ng-message="required">{{'i18n_required' | translator:'必填'}}.</div>
+    </div>
+</md-input-container>

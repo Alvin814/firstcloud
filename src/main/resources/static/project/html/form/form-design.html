@@ -1,0 +1,38 @@
+<div class="form-design" layout="row" layout-align="start center" ng-repeat="row in template.content.rows">
+    <div class="row" flex="auto" layout="row">
+        <div class="cell" flex="{{cell.width}}" layout="row" layout-align="start center" ng-repeat="cell in row.cells"
+             drop-element="cell.element">
+            <div flex="auto" drag-element="cell" ng-click="config(cell.element)" ng-class="{'element-selected':selected === cell.element.property.id}">
+                <element-design item="cell.element" ng-if="cell.element"></element-design>
+            </div>
+            <div class="cell-buttons">
+                <md-button class="md-icon-button md-raised" ng-click="addCell(row.cells, $index)">
+                    <md-tooltip md-delay="300">{{'i18n_form_column_add' | translator:'增加列'}}</md-tooltip>
+                    <md-icon>add</md-icon>
+                </md-button>
+                <md-button class="md-icon-button md-raised" ng-click="removeCell(row.cells, $index)">
+                    <md-tooltip md-delay="300">{{'i18n_form_column_delete' | translator:'删除列'}}</md-tooltip>
+                    <md-icon>remove</md-icon>
+                </md-button>
+                <!--暂时不用-->
+                <!--<md-button class="md-icon-button md-raised" ng-click="setWidth(cell, cell.width)">-->
+                <!--<md-tooltip md-delay="300">设置宽度</md-tooltip>-->
+                <!--<md-icon>space_bar</md-icon>-->
+                <!--</md-button>-->
+                <md-button class="md-icon-button md-raised" ng-click="deleteElement(cell)" ng-if="cell.element">
+                    <md-tooltip md-delay="300">{{'i18n_form_element_delete' | translator:'删除控件'}}</md-tooltip>
+                    <md-icon>clear</md-icon>
+                </md-button>
+            </div>
+
+        </div>
+    </div>
+    <md-button class="md-icon-button md-raised md-primary" ng-click="addRow(template.content.rows, $index)">
+        <md-tooltip md-delay="300">{{'i18n_form_row_add' | translator:'增加行'}}</md-tooltip>
+        <md-icon>add</md-icon>
+    </md-button>
+    <md-button class="md-icon-button md-raised md-accent" ng-click="removeRow(template.content.rows, $index)">
+        <md-tooltip md-delay="300">{{'i18n_form_row_delete' | translator:'删除行'}}</md-tooltip>
+        <md-icon>remove</md-icon>
+    </md-button>
+</div>

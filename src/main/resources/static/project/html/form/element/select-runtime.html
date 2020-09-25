@@ -1,0 +1,22 @@
+<md-input-container class="md-block" ng-show="self.display !== false" ng-if="!self.multiple" ng-cloak>
+    <label>{{self.label}}</label>
+    <md-select id="{{self.id}}" name="{{self.id}}" ng-required="self.required"
+               ng-model="self.value" ng-disabled="self.disabled === true" ng-change="fireEvent(EVENT_NAME.CHANGE)">
+        <md-option ng-repeat="option in self.options" ng-value="option.key">{{option.value}}</md-option>
+    </md-select>
+    <div ng-messages="form[self.id].$error">
+        <div ng-message="required">{{'i18n_required' | translator:'必填'}}.</div>
+    </div>
+</md-input-container>
+
+<md-input-container class="md-block" ng-show="self.display !== false" ng-if="self.multiple" ng-cloak>
+    <label>{{self.label}}</label>
+    <md-select id="{{self.id}}" name="{{self.id}}" ng-required="self.required" multiple
+               ng-model="self.value" ng-disabled="self.disabled === true" ng-change="fireEvent(EVENT_NAME.CHANGE)">
+        <md-option ng-repeat="option in self.options" ng-value="option.key">{{option.value}}</md-option>
+    </md-select>
+    <div ng-messages="form[self.id].$error">
+        <div ng-message="required">{{'i18n_required' | translator:'必填'}}.</div>
+    </div>
+</md-input-container>
+

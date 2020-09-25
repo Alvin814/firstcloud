@@ -1,0 +1,63 @@
+<div layout="row" layout-fill ng-controller="FormDesignCtrl" class="content-backdrop" cg-busy="{promise:loadingLayer, minDuration:200}" ng-cloak>
+    <div layout="column" layout-fill>
+        <md-toolbar class="content-toolbar">
+            <div class="md-toolbar-tools">
+                <md-button class="md-icon-button md-primary" ng-click="back()">
+                    <md-tooltip md-delay="300" md-direction="left">{{'i18n_back' | translator:'返回'}}</md-tooltip>
+                    <md-icon>arrow_back</md-icon>
+                </md-button>
+                <div>
+                    {{'i18n_form_design' | translator:'表单设计'}}
+                </div>
+                <md-button class="md-primary" ng-click="save()" ng-disabled="designForm.$invalid">
+                    <md-icon>save</md-icon>
+                    {{'i18n_save' | translator:'保存'}}
+                </md-button>
+                <md-button class="md-primary" ng-click="publish()" ng-disabled="template.deployId" ng-if="type === 'update'">
+                    <md-icon>publish</md-icon>
+                    {{'i18n_publish' | translator:'发布'}}
+                </md-button>
+                <md-button class="md-primary" ng-click="preview()">
+                    <md-icon>visibility</md-icon>
+                    {{'i18n_preview' | translator:'预览'}}
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-content class="md-padding">
+            <div class="template">
+                <form name="designForm" layout="row" layout-wrap>
+                    <md-input-container flex="auto">
+                        <label>{{'i18n_form_id' | translator:'表单ID'}}</label>
+                        <input md-maxlength="64" required name="id" ng-model="template.id" autocomplete="off" ng-disabled="type === 'update'">
+                        <div ng-messages="designForm.id.$error">
+                            <div ng-message="required">{{'i18n_required' | translator:'必填'}}.</div>
+                            <div ng-message="md-maxlength">{{'i18n_input_length_limit_64' | translator:'不要超过64个字符'}}</div>
+                        </div>
+                        <div class="hint">{{'i18n_form_cannot_modify' | translator:'保存后不能修改'}}</div>
+                    </md-input-container>
+
+                    <md-input-container flex="auto">
+                        <label>{{'i18n_form_name' | translator:'表单名称'}}</label>
+                        <input md-maxlength="100" required name="name" ng-model="template.name" autocomplete="off">
+                        <div ng-messages="designForm.name.$error">
+                            <div ng-message="required">{{'i18n_required' | translator:'必填'}}.</div>
+                            <div ng-message="md-maxlength">{{'i18n_input_length_limit_100' | translator:'不要超过100个字符'}}</div>
+                        </div>
+                    </md-input-container>
+                </form>
+                <h3>{{'i18n_form_content' | translator:'表单内容'}}</h3>
+                <form ng-include="formDesignUrl"></form>
+            </div>
+        </md-content>
+    </div>
+    <md-sidenav class="md-sidenav-right sidenav-form-designer" md-disable-backdrop md-is-locked-open="true" md-component-id="sidenav_form">
+        <md-tabs>
+            <md-tab label="{{'i18n_form_config' | translator:'表单配置'}}" md-on-select="active=false" ng-cloak>
+                <md-content class="md-padding" ng-include="formConfigUrl"></md-content>
+            </md-tab>
+            <md-tab label="{{'i18n_element_config' | translator:'控件配置'}}" md-active="active">
+                <md-content class="md-padding" ng-include="elementConfigUrl"></md-content>
+            </md-tab>
+        </md-tabs>
+    </md-sidenav>
+</div>

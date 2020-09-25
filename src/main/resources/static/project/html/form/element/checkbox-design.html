@@ -1,0 +1,6 @@
+<div class="form-element-checkbox">
+    <div class="form-element-checkbox-label">{{item.property.label}}</div>
+    <md-checkbox class="md-primary" ng-repeat="option in item.property.options" ng-model="option.empty" disabled>
+        {{option.label}}
+    </md-checkbox>
+</div>

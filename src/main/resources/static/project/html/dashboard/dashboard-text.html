@@ -1,0 +1,11 @@
+<div>
+    <div layout="row" layout-align="start center" layout-margin style="margin-left: 12px">
+        <div flex="50"><span>{{'i18n_status_created' | translator:'已创建'}}：</span><span>{{data.created}}</span></div>
+        <div flex="50"><span>{{'i18n_status_running' | translator:'待处理'}}：</span><span>{{data.running}}</span></div>
+    </div>
+    <div layout="row" layout-align="start center" layout-margin style="margin-left: 12px">
+        <div flex="50"><span>{{'i18n_status_complete' | translator:'已完成'}}：</span><span>{{data.complete}}</span></div>
+
+        <div flex="50"><span>{{'i18n_status_terminated' | translator:'已中止'}}：</span><span>{{data.terminated}}</span></div>
+    </div>
+</div>

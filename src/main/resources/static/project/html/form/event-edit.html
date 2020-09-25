@@ -1,0 +1,41 @@
+<md-dialog class="md-default-dialog edit-js-dialog" aria-label="Edit Javascript Form">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>{{'i18n_event_edit' | translator:'编辑事件'}}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button">
+                <md-tooltip class="f2c-tooltip-user">
+                    self: {{'i18n_event_self' | translator:'当前控件对象, 通过self.value可以获取当前控件的值'}}<br>
+                    ctrl: {{'i18n_event_ctrl' | translator:'所有控件对象，通过ctrl[控件ID]可获取控件对象，例如ctrl["name"]可以获取到ID为name的控件对象'}}<br>
+                    context: {{'i18n_event_context' | translator:'暂时为空'}}<br>
+                    service: {{'i18n_event_service' | translator:'提供show(id),hide(id),enable(id),disable(id)方法，其中id为控件ID'}}<br>
+                    {{'i18n_event_service_1' | translator:'此外service提供2个对象,如下：'}}：<br>
+                    {{'i18n_event_service_2' | translator:'$http: angular js的$http'}}<br>
+                    notice: {{'i18n_event_service_3' | translator:'notice: 通知功能对象，含有方法:success(msg),info(msg),warn(msg),danger(msg)等，例如service.notice.success("提交成功")'}}<br>
+                    {{'i18n_event_service_4' | translator:'查看对象方法，可在事件内填写console.log(self)或console.log(ctrl)或console.log(service)，在控制台查看对象内容'}}
+                </md-tooltip>
+                <md-icon class="md-light">help</md-icon>
+            </md-button>
+            <md-button class="md-icon-button" ng-click="close()">
+                <md-icon class="md-light">close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content" layout="column">
+            <md-input-container>
+                <label>function {{name}} (self, ctrl, context, service) { {{'i18n_event_content' | translator:'事件内容'}} }</label>
+                <textarea md-no-autogrow ng-model="content" rows="15" placeholder="{{'i18n_event_placeholder' | translator:'添加事件内容，不需要写{ }，支持AngularJS v1.7.2'}}"></textarea>
+            </md-input-container>
+        </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row" layout-align="center center">
+        <md-button ng-click="close()">
+            {{'i18n_cancel' | translator:'取消'}}
+        </md-button>
+        <md-button class="md-primary" ng-click="save()">
+            {{'i18n_ok' | translator:'确定'}}
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

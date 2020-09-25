@@ -1,0 +1,13 @@
+<md-input-container class="md-block" ng-show="self.display !== false" ng-cloak>
+    <label>{{self.label}}</label>
+    <input id="{{self.id}}" name="{{self.id}}" type="{{self.inputType}}"
+           ng-required="self.required" md-maxlength="self.max"
+           ng-model="self.value" ng-disabled="self.disabled === true"
+           ng-blur="fireEvent(EVENT_NAME.BLUR)"
+           ng-change="fireEvent(EVENT_NAME.CHANGE)">
+    <div ng-messages="form[self.id].$error">
+        <div ng-message="required">{{'i18n_required' | translator:'必填'}}.</div>
+        <div ng-message="md-maxlength">{{'i18n_element_input_text_limit' | translator:'最大字符数:'}}{{self.max}}</div>
+    </div>
+    <div class="hint">{{self.hint}}</div>
+</md-input-container>

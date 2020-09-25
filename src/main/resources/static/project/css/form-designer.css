@@ -1,0 +1,191 @@
+.sidenav-form-designer {
+    width: 30%;
+    min-width: 360px;
+    max-width: 50%;
+    padding: 6px 0;
+    overflow-y: hidden;
+    border-left: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.sidenav-form-designer md-tabs {
+    height: 100%;
+}
+
+.form-element {
+    border: 1px dashed rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+}
+
+.form-element + .form-element {
+    margin-top: 8px;
+}
+
+.form-element:hover {
+    background-color: rgba(0, 0, 0, .04);
+}
+
+.form-element > md-icon.form-element-icon:first-child:not(.md-avatar-icon) {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.template {
+    /*width: 100%;*/
+}
+
+.template .row {
+    min-height: 48px;
+    border: 1px dashed rgba(0, 0, 0, 0.12);
+}
+
+.form-design > .md-icon-button {
+    /*width: 30px;*/
+    /*min-height: 30px;*/
+    /*height: 30px;*/
+    margin: 2px;
+    padding: 0;
+    opacity: 0;
+}
+
+.form-design:last-child > .md-icon-button {
+    opacity: 1;
+}
+
+.form-design:hover > .md-icon-button {
+    opacity: 1;
+}
+
+.form-design + .form-design > .row {
+    border-top: none;
+}
+
+.form-design .cell {
+    position: relative;
+}
+
+.form-design .cell:hover {
+    background-color: rgba(0, 0, 0, .04);
+}
+
+.form-design .cell + .cell {
+    border-left: 1px dashed rgba(0, 0, 0, 0.12);
+}
+
+.form-design .cell .cell-buttons {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
+.form-design .cell .cell-buttons .md-icon-button {
+    width: 24px;
+    min-height: 24px;
+    height: 24px;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+}
+
+.form-design .cell:hover .cell-buttons .md-icon-button {
+    opacity: 1;
+}
+
+.element-selected {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.form-element-input {
+    margin: 0;
+}
+
+.form-element-select {
+    margin: 0;
+    height: 54px;
+}
+
+.form-element-switch, .form-element-link, .form-element-checkbox, .form-element-radio {
+    margin: 0;
+    height: 58px;
+}
+
+.form-element-radio-label {
+    padding: 5px 3px;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.form-element-checkbox-label {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.form-element-textarea {
+    margin-bottom: 0;
+}
+
+.form-element-checkbox > md-checkbox {
+    margin-bottom: 0;
+}
+
+.element-config {
+    width: 100%;
+}
+
+.element-config md-input-container {
+    margin-bottom: 0;
+}
+
+.element-config md-switch {
+    margin: 0;
+}
+
+.select-config-option + .select-config-option {
+    margin-top: 10px;
+}
+
+.select-config-option > div {
+    width: 15%;
+}
+
+.select-config-option > input {
+    margin: 0;
+    padding: 2px;
+    width: 30%;
+}
+
+.property-title {
+    width: 50px;
+    white-space: nowrap;
+    font-weight: bold;
+    height: 26px;
+    line-height: 26px;
+}
+
+.property-name {
+    width: 50px;
+    white-space: nowrap;
+    height: 32px;
+    line-height: 32px;
+}
+
+fieldset.standard {
+    margin: 8px 0 0 0;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+fieldset.standard legend {
+    font-weight: bold;
+}
+
+.edit-js-dialog {
+    width: 50%;
+    min-width: 600px;
+}
+
+.form-preview-dialog {
+    width: 80%;
+    min-width: 800px;
+}
+
+md-radio-group[layout="row"] {
+    margin-bottom: 18px;
+    padding: 0 5px;
+}

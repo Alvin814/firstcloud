@@ -1,0 +1,110 @@
+/*!
+ * 项目CSS，有特殊需求就写在这里。
+**/
+@import "form-designer.css";
+
+md-dialog.ticket-config-dialog {
+    width: 40%;
+    min-width: 400px;
+}
+
+md-dialog.ticket-tag-dialog {
+    width: 30%;
+    min-width: 400px;
+}
+
+.select-search {
+    border: none;
+    outline: none;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    background-color: transparent;
+}
+
+.select-header {
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(0, 0, 0, 0.14), 0 0 0 0 rgba(0, 0, 0, 0.12);
+    padding-left: 32px;
+    height: 48px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: auto;
+}
+
+.table thead > tr > th.ticket-tag-operation {
+    width: 200px;
+    padding: 16px
+}
+
+.ticket-tag-input {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    outline: none;
+    height: 30px;
+    width: calc(100% - 16px);
+    padding-left: 5px;
+    margin-left: -1px;
+}
+
+.ticket-tag-input:focus {
+    border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.ticket-tag-btn {
+    min-width: 0;
+    margin: 0;
+}
+
+.ticket-background {
+    background-image: url(../img/background.svg);
+    background-size: cover;
+}
+
+.ticket-background md-content {
+    background-color: transparent;
+}
+
+.ticket-filter {
+    height: 66px;
+}
+
+.ticket-filter-input {
+    margin: 0;
+    width: 250px;
+}
+
+.ticket-filter .md-button {
+    min-width: 60px;
+}
+
+.ticket-filter .md-button:first-child {
+    margin-left: 0;
+}
+
+.ticket-card {
+    padding: 0 10px;
+    width: 100%;
+    height: 160px;
+    word-wrap: break-word;
+    word-break: break-all;
+    background-color: #fff;
+}
+
+.ticket-card-description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+.ticket-content {
+    height: calc(100% - 122px);
+}
+
+/*!
+ * 项目CSS，有特殊需求就写在这里。
+**/
+.menu-toggle-clip {
+    width: 140px;
+}

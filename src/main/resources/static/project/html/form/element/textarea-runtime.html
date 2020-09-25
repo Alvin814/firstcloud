@@ -1,0 +1,14 @@
+<md-input-container class="md-block" ng-show="self.display !== false" ng-cloak>
+    <label>{{self.label}}</label>
+    <textarea id="{{self.id}}" name="{{self.id}}"
+              rows="{{self.rows}}" placeholder="{{self.hint}}"
+              md-no-autogrow
+              ng-required="self.required"
+              ng-model="self.value"
+              ng-disabled="self.disabled === true"
+              ng-blur="fireEvent(EVENT_NAME.BLUR)"
+              ng-change="fireEvent(EVENT_NAME.CHANGE)"></textarea>
+    <div ng-messages="form[self.id].$error">
+        <div ng-message="required">{{'i18n_required' | translator:'必填'}}.</div>
+    </div>
+</md-input-container>

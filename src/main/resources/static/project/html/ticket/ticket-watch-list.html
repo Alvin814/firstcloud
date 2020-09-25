@@ -1,0 +1,53 @@
+<div layout-fill ng-controller="TicketWatchListCtrl" class="content-backdrop" ng-cloak>
+    <div layout="column" cg-busy="{promise:loadingLayer, minDuration:500}">
+        <md-toolbar class="content-toolbar">
+            <div class="md-toolbar-tools">
+                <div>{{'i18n_duty_person_list' | translator:'值班人列表'}}</div>
+                <md-button class="md-primary" ng-click="openCreate()" has-permission="WATCH_LIST:CREATE">
+                    <md-icon>add_circle_outline</md-icon>
+                    {{'i18n_create' | translator:'创建'}}
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-content class="md-padding">
+            <filter-tools conditions="conditions" results="filters" quick-search="true" execute="list()">
+                <select-columns columns="columns"></select-columns>
+                <div class="filter-item">
+                    <md-button class="md-icon-button md-whiteframe-1dp" ng-click="list()">
+                        <md-tooltip md-delay="300">{{'i18n_refresh' | translator:'刷新'}}</md-tooltip>
+                        <md-icon>refresh</md-icon>
+                    </md-button>
+                </div>
+            </filter-tools>
+            <table dynamic-table columns="columns" execute="list({sql: sql})">
+                <tbody>
+                <tr ng-repeat="item in items">
+                    <td>{{item.watchDate | date:'yyyy-MM-dd'}}</td>
+                    <td>{{item.dayUserName}}</td>
+                    <td>{{item.nightUserName}}</td>
+                    <td>
+                        <table-menus>
+                            <md-menu-item has-permission="WATCH_LIST:EDIT">
+                                <md-button ng-click="openUpdate(item)">
+                                    <md-icon>edit</md-icon>
+                                    {{'i18n_edit' | translator:'编辑'}}
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item has-permission="WATCH_LIST:DELETE">
+                                <md-button ng-click="delete(item)">
+                                    <md-icon>delete</md-icon>
+                                    {{'i18n_delete' | translator:'删除'}}
+                                </md-button>
+                            </md-menu-item>
+                        </table-menus>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <table-pagination pagination="pagination"></table-pagination>
+        </md-content>
+    </div>
+    <side-form width="80%"></side-form>
+</div>
+
+

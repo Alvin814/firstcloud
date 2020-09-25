@@ -1,0 +1,8 @@
+<md-input-container class="form-element-input">
+    <label>{{item.property.label}}</label>
+    <md-datepicker name="{{item.property.id}}" ng-required="item.property.required" ng-model="item.property.empty"
+                   disabled></md-datepicker>
+    <div ng-messages="form[item.property.id].$error">
+        <div ng-message="required">{{'i18n_required' | translator:'必填'}}.</div>
+    </div>
+</md-input-container>
